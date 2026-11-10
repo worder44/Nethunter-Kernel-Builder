@@ -1,21 +1,23 @@
+
 [
   {
     "kernelSource": {
       "name": "android_kernel_sony_sdm660",
       "repo": "https://github.com/LineageOS/android_kernel_sony_sdm660.git",
       "branch": "lineage-18.1",
-      "device": "pioneer_defconfig"
+      "device": "pioneer"
     },
     "withKernelSU": false,
-    "toolchains": [
-      {
-        "name": "clang",
-        "version": "r383902"
-      }
-    ],
-    "params": [
-      "ARCH=arm64"
-    ],
-    "extraCmd": "git clone https://github.com/morrownr/8821au-20210708.git drivers/net/wireless/realtek/rtl8811au && echo 'obj-$(CONFIG_RTL8811AU) += rtl8811au/' >> drivers/net/wireless/realtek/Makefile"
+    "toolchains": [],
+    "params": {
+      "ARCH": "arm64",
+      "CROSS_COMPILE": "aarch64-linux-gnu-",
+      "CROSS_COMPILE_COMPAT": "arm-linux-gnueabi-",
+      "CLANG_TRIPLE": "aarch64-linux-gnu-",
+      "CC": "clang"
+    },
+    "extraParams": {
+      "CONFIG_MODULES": "y"
+    }
   }
 ]
